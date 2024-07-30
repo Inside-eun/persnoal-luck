@@ -1,11 +1,18 @@
 import "./App.css";
 import { Landing } from "./Page/Landing";
+import {
+  RecoilRoot,
+  atom,
+  selector,
+  useRecoilState,
+  useRecoilValue,
+} from "recoil";
 
 function App() {
   return (
-    <div className="App">
+    <RecoilRoot>
       <Landing />
-    </div>
+    </RecoilRoot>
   );
 }
 

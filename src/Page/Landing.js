@@ -4,6 +4,8 @@ import TimeTableSelector from "../Component/TimeTableSelector";
 import GenderSelector from "../Component/GenderSelector";
 import CalendarSelector from "../Component/CalenderSelector";
 import { useState } from "react";
+import { useRecoilState } from "recoil";
+import userInfo from "../State/UserInfo";
 
 export const Landing = () => {
   const [gender, setGender] = useState("female");
@@ -14,8 +16,20 @@ export const Landing = () => {
     day: 0,
   });
   const [timetable, setTimeTable] = useState("자시");
+  const [info, setInfo] = useRecoilState(userInfo);
 
-  console.log(gender, birthdate);
+  const userInfoDeliver = () => {
+    setInfo({
+      gender: gender,
+      calendarType: calendarType,
+      year: birthdate.year,
+      month: birthdate.month,
+      day: birthdate.day,
+      timetable: timetable,
+    });
+    console.log(info);
+  };
+
   return (
     <div>
       <GenderSelector gender={gender} setGender={setGender} />
@@ -26,6 +40,14 @@ export const Landing = () => {
       />
       <BirthdateSelector birthdate={birthdate} setBirthdate={setBirthdate} />
       <TimeTableSelector timetable={timetable} setTimeTable={setTimeTable} />
+      <button onClick={userInfoDeliver}>Go</button>
     </div>
   );
 };
+
+//다음 버튼 만들기
+//로딩창 만들기
+//생시 뽑아내기
+//생시 바탕으로 컬러 뽑아내기
+//결과 보여주기
+//연결 버튼 만들기
