@@ -3,13 +3,14 @@ import BirthdateSelector from "../Component/BirthdateSelector";
 import TimeTableSelector from "../Component/TimeTableSelector";
 import GenderSelector from "../Component/GenderSelector";
 import CalendarSelector from "../Component/CalenderSelector";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRecoilState } from "recoil";
 import userInfo from "../State/UserInfo";
+import { useNavigate } from "react-router-dom";
 
 export const Landing = () => {
   const [gender, setGender] = useState("female");
-  const [calendarType, setCalendarType] = useState("양력");
+  const [calendarType, setCalendarType] = useState("solarCalendar");
   const [birthdate, setBirthdate] = useState({
     year: 0,
     month: 0,
@@ -18,17 +19,24 @@ export const Landing = () => {
   const [timetable, setTimeTable] = useState("자시");
   const [info, setInfo] = useRecoilState(userInfo);
 
+  const navigate = useNavigate();
+
   const userInfoDeliver = () => {
-    setInfo({
-      gender: gender,
-      calendarType: calendarType,
+    setInfo((prev) => ({
+      ...prev,
+      gen: gender,
+      cal: calendarType,
       year: birthdate.year,
       month: birthdate.month,
       day: birthdate.day,
-      timetable: timetable,
-    });
-    console.log(info);
+      time: timetable,
+    }));
+    navigate("/result");
   };
+
+  useEffect(() => {
+    console.log(info);
+  }, [info]);
 
   return (
     <div>
@@ -44,10 +52,3 @@ export const Landing = () => {
     </div>
   );
 };
-
-//다음 버튼 만들기
-//로딩창 만들기
-//생시 뽑아내기
-//생시 바탕으로 컬러 뽑아내기
-//결과 보여주기
-//연결 버튼 만들기
