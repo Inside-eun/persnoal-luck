@@ -2,26 +2,32 @@ import React from "react";
 import userInfo from "../State/UserInfo";
 import { useRecoilState } from "recoil";
 import { useEffect, useState } from "react";
+import BirthdayChanger from "../Component/BirthdayChanger";
+import GanjiGraph from "../Component/GanjiGraph";
 import moment from "moment";
 import "moment-lunar";
 
 export const ViewReport = () => {
   const [info, setInfo] = useRecoilState(userInfo);
-  const [lunarDate, setLunarDate] = useState("");
+  const [solarDate, setsolarDate] = useState("");
 
   useEffect(() => {
-    console.log(info);
-    if (info.cal === "solarCalendar") {
+    if (info.cal !== "solarCalendar") {
       const { year, month, day } = info;
+      const lunarDate = moment(`${year}-${month}-${day}`, "YYYY-MM-DD");
+      const solarDate = lunarDate.solar().format("YYYY-MM-DD");
 
-      const solarDate = moment(`${year}-${month}-${day}`, "YYYY-MM-DD");
-      const lunarDate = solarDate.lunar().format("YYYY-MM-DD");
-
-      setLunarDate(lunarDate);
+      setsolarDate(solarDate);
     } else {
-      setLunarDate(`${info.year}-${info.month}-${info.day}`);
+      setsolarDate(`${info.year}-${info.month}-${info.day}`);
     }
   }, [info]);
 
-  return <div>{lunarDate}</div>;
+  return (
+    <div>
+      <div>{solarDate}</div>
+      <BirthdayChanger birthday={solarDate} time={info.time} />
+      <GanjiGraph />
+    </div>
+  );
 };
