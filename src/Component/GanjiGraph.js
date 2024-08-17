@@ -3,12 +3,12 @@ import { useRecoilState } from "recoil";
 import userGanji from "../State/UserGanji";
 
 const calculateElementPoints = (sajuObj) => {
-  console.log(sajuObj);
+  console.log(sajuObj, "tttt");
 
   const fireSource = ["병", "정", "오", "사"];
   const waterSource = ["임", "계", "해", "자"];
   const earthSource = ["무", "기", "진", "미", "술", "축"];
-  const metalSource = ["경", "신", "신", "유"];
+  const metalSource = ["경", "신", "유"];
   const woodSource = ["갑", "을", "인", "묘"];
   // 속성 초기화
   const points = {
@@ -20,9 +20,10 @@ const calculateElementPoints = (sajuObj) => {
   };
 
   // 객체의 모든 값 추출 및 분석
-  if (typeof value === "string") {
-    for (let key in sajuObj) {
-      const value = sajuObj[key];
+  for (let key in sajuObj) {
+    const value = sajuObj[key];
+
+    if (typeof value === "string") {
       for (let char of value) {
         if (fireSource.includes(char)) points.fire += 1;
         if (waterSource.includes(char)) points.water += 1;
@@ -38,7 +39,6 @@ const calculateElementPoints = (sajuObj) => {
 
 const GanjiGraph = () => {
   const [data, setData] = useRecoilState(userGanji);
-  console.log(data, "data");
 
   const result = calculateElementPoints(data);
 
