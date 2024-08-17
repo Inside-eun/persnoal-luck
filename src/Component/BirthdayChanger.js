@@ -42,15 +42,15 @@ const BirthdayChanger = ({ birthday, time }) => {
 
     const yearStemIndex = (year - 4) % 10;
     const yearBranchIndex = (year - 4) % 12;
-    setGanjiYear(
-      heavenlyStems[yearStemIndex] + earthlyBranches[yearBranchIndex]
-    );
+    const newGanjiYear =
+      heavenlyStems[yearStemIndex] + earthlyBranches[yearBranchIndex];
+    setGanjiYear(newGanjiYear);
 
     const monthBranchIndex = (month + 1) % 12;
-    setGanjiMonth(
+    const newGanjiMonth =
       heavenlyStems[(yearStemIndex * 2 + month) % 10] +
-        earthlyBranches[monthBranchIndex]
-    );
+      earthlyBranches[monthBranchIndex];
+    setGanjiMonth(newGanjiMonth);
 
     const baseDate = new Date(1900, 0, 1); // 1900년 1월 1일 기준
     const targetDate = new Date(year, month - 1, day);
@@ -59,13 +59,18 @@ const BirthdayChanger = ({ birthday, time }) => {
     );
     const dayStemIndex = (diffDays + 3) % 10; // 1900년 1월 1일은 무오일
     const dayBranchIndex = (diffDays + 3) % 12;
-    setGanjiDay(heavenlyStems[dayStemIndex] + earthlyBranches[dayBranchIndex]);
+    const newGanjiDay =
+      heavenlyStems[dayStemIndex] + earthlyBranches[dayBranchIndex];
+    setGanjiDay(newGanjiDay);
 
     const timeStems = time.substr(0, 1);
     const timeBranchIndex =
       heavenlyStems[earthlyBranches.indexOf(timeStems) % 10];
-    setGanjiTime(timeStems + timeBranchIndex);
+    const newGanjiTime = timeStems + timeBranchIndex;
+    setGanjiTime(newGanjiTime);
+  }, [birthday, time]);
 
+  useEffect(() => {
     setGanji((prev) => ({
       ...prev,
       year: ganjiYear,
@@ -73,7 +78,7 @@ const BirthdayChanger = ({ birthday, time }) => {
       day: ganjiDay,
       time: ganjiTime,
     }));
-  }, [birthday]);
+  }, [ganjiYear, ganjiMonth, ganjiDay, ganjiTime]);
 
   return (
     <div>
