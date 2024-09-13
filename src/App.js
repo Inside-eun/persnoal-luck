@@ -1,13 +1,7 @@
 import "./App.css";
 import { Landing } from "./Page/Landing";
 import { ViewReport } from "./Page/ViewReport";
-import {
-  RecoilRoot,
-  atom,
-  selector,
-  useRecoilState,
-  useRecoilValue,
-} from "recoil";
+import { RecoilRoot } from "recoil";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 const router = createBrowserRouter([
