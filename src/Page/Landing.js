@@ -34,10 +34,6 @@ export const Landing = () => {
     navigate("/result");
   };
 
-  useEffect(() => {
-    console.log(info);
-  }, [info]);
-
   return (
     <div>
       <GenderSelector gender={gender} setGender={setGender} />
