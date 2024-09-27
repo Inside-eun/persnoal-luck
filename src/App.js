@@ -1,8 +1,9 @@
-import "./App.css";
 import { Landing } from "./Page/Landing";
 import { ViewReport } from "./Page/ViewReport";
 import { RecoilRoot } from "recoil";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { BackGround } from "./style/basic.style";
+import { LandingHeader } from "./Component/Header";
 
 const router = createBrowserRouter([
   {
@@ -18,7 +19,10 @@ const router = createBrowserRouter([
 function App() {
   return (
     <RecoilRoot>
-      <RouterProvider router={router} />
+      <BackGround>
+        <LandingHeader />
+        <RouterProvider router={router} />
+      </BackGround>
     </RecoilRoot>
   );
 }

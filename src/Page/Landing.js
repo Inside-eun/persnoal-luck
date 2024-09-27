@@ -7,6 +7,7 @@ import { useState, useEffect } from "react";
 import { useRecoilState } from "recoil";
 import userInfo from "../State/UserInfo";
 import { useNavigate } from "react-router-dom";
+import Banner from "../Component/Banner";
 
 export const Landing = () => {
   const [gender, setGender] = useState("female");
@@ -36,6 +37,7 @@ export const Landing = () => {
 
   return (
     <div>
+      <Banner />
       <GenderSelector gender={gender} setGender={setGender} />
       <div>생년월일</div>
       <CalendarSelector
