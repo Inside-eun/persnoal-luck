@@ -1,3 +1,5 @@
+import * as style from "../style/PersonInfo.style";
+
 import React from "react";
 
 const TimeTableSelector = ({ timetable, setTimeTable }) => {
@@ -21,16 +23,13 @@ const TimeTableSelector = ({ timetable, setTimeTable }) => {
   ];
 
   return (
-    <div>
-      <label htmlFor="time">태어난 시각을 골라주세요</label>
-      <select id="time" name="time" onChange={handelTimeChange}>
-        {times.map((time) => (
-          <option key={time.key} value={time.value}>
-            {[time.label, " ", time.value]}
-          </option>
-        ))}
-      </select>
-    </div>
+    <style.BirthTimeSelector id="time" name="time" onChange={handelTimeChange}>
+      {times.map((time) => (
+        <option key={time.key} value={time.value}>
+          {[time.label, " ", time.value]}
+        </option>
+      ))}
+    </style.BirthTimeSelector>
   );
 };
 
