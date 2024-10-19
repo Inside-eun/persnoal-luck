@@ -4,6 +4,8 @@ import { RecoilRoot } from "recoil";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { BackGround } from "./style/basic.style";
 import { LandingHeader } from "./Component/Header";
+import GlobalFont from "./style/font";
+import GlobalStyle from "./style/globalStyle";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +22,8 @@ function App() {
   return (
     <RecoilRoot>
       <BackGround>
+        <GlobalStyle />
+        <GlobalFont />
         <LandingHeader />
         <RouterProvider router={router} />
       </BackGround>
