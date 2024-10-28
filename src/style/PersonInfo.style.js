@@ -8,9 +8,10 @@ export const ScriptLarge = styled.div`
 export const ScriptSmall = styled.div`
   text-align: center;
   font-size: 12px;
+  font-family: "Pretendard-Light";
 `;
 
-export const SelectZone = styled.div`
+export const SelectZone = styled.form`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -37,19 +38,31 @@ export const OptionInput = styled.input`
   height: 32px;
   border: 1px solid #bababa;
   border-radius: 4px;
+  font-family: "Pretendard-Light";
+  font-size: 14px;
 `;
 
-export const OptionCheckBox = styled.input.attrs({ type: "checkbox" })``;
+export const OptionCheckBoxLabel = styled.label`
+  font-family: "Pretendard-Light";
+  font-size: 14px;
+  cursor: pointer;
+`;
+
+export const OptionCheckBox = styled.input.attrs({ type: "radio" })``;
 
 export const BirthDaySelector = styled.select`
   width: 125px;
   height: 32px;
   border: 1px solid #bababa;
   border-radius: 4px;
+  font-family: "Pretendard-Light";
+  font-size: 14px;
 `;
 
 export const BirthTimeSelector = styled(BirthDaySelector)`
   width: 100%;
+  font-family: "Pretendard-Light";
+  font-size: 14px;
 `;
 
 export const BirthDayWrap = styled.div`
@@ -74,4 +87,6 @@ export const SubmitButton = styled.button`
   color: #ffffff;
   text-align: center;
   margin-bottom: 40px;
+  font-family: "Pretendard-Medium";
+  cursor: pointer;
 `;

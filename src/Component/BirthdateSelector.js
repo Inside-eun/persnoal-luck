@@ -1,65 +1,22 @@
 import React from "react";
 import * as style from "../style/PersonInfo.style";
 
-const BirthdateSelector = ({
-  birthdate,
-  setBirthdate,
-  calendarType,
-  setCalendarType,
-}) => {
+const BirthdateSelector = () => {
   const currentYear = new Date().getFullYear();
   const years = Array.from(new Array(101), (val, index) => currentYear - index);
-
-  const handleTypeChange = (event) => {
-    setCalendarType(event.target.value);
-  };
-
-  const handleYearChange = (e) => {
-    const value = e.target.value ? Number(e.target.value) : null;
-    setBirthdate((prevBirthdate) => ({
-      ...prevBirthdate,
-      year: value,
-    }));
-  };
-
-  const handleMonthChange = (e) => {
-    const value = e.target.value ? Number(e.target.value) : null;
-    setBirthdate((prevBirthdate) => ({
-      ...prevBirthdate,
-      month: value,
-    }));
-  };
-
-  const handleDayChange = (e) => {
-    const value = e.target.value ? Number(e.target.value) : null;
-    setBirthdate((prevBirthdate) => ({
-      ...prevBirthdate,
-      day: value,
-    }));
-  };
 
   return (
     <style.BirthDayWrap>
       <style.BirthDayOneWrap>
-        {" "}
-        <style.BirthDaySelector
-          id="calendar"
-          name="calendar"
-          onChange={handleTypeChange}
-        >
+        <style.BirthDaySelector required id="calendar" name="calendar">
           <option value="" disabled selected>
-            {" "}
             양/음력
           </option>
           <option value="solarCalendar">양력</option>
           <option value="loonarCalendar(normal month)">음력(평달)</option>
           <option value="loonarCalendar(leap month)">음력(윤달)</option>
         </style.BirthDaySelector>
-        <style.BirthDaySelector
-          id="year"
-          name="year"
-          onChange={handleYearChange}
-        >
+        <style.BirthDaySelector required id="year" name="year">
           <option value="" disabled selected>
             출생년
           </option>
@@ -72,11 +29,7 @@ const BirthdateSelector = ({
       </style.BirthDayOneWrap>
 
       <style.BirthDayOneWrap>
-        <style.BirthDaySelector
-          id="month"
-          name="month"
-          onChange={handleMonthChange}
-        >
+        <style.BirthDaySelector required id="month" name="month">
           <option value="" disabled selected>
             출생월
           </option>
@@ -86,7 +39,7 @@ const BirthdateSelector = ({
             </option>
           ))}
         </style.BirthDaySelector>
-        <style.BirthDaySelector id="day" name="day" onChange={handleDayChange}>
+        <style.BirthDaySelector id="day" name="day" required>
           <option value="" disabled selected>
             출생일
           </option>

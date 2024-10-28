@@ -2,11 +2,7 @@ import * as style from "../style/PersonInfo.style";
 
 import React from "react";
 
-const TimeTableSelector = ({ timetable, setTimeTable }) => {
-  const handelTimeChange = (e) => {
-    const selectedKey = times.find((time) => time.value === e.target.value).key;
-    setTimeTable(selectedKey);
-  };
+const TimeTableSelector = () => {
   const times = [
     { label: "자시 (子時, 자子)", value: "23:30 ~ 01:29", key: "자시" },
     { label: "축시 (丑時, 축牛)", value: "01:30 ~ 03:29", key: "축시" },
@@ -23,7 +19,7 @@ const TimeTableSelector = ({ timetable, setTimeTable }) => {
   ];
 
   return (
-    <style.BirthTimeSelector id="time" name="time" onChange={handelTimeChange}>
+    <style.BirthTimeSelector id="time" name="time">
       {times.map((time) => (
         <option key={time.key} value={time.value}>
           {[time.label, " ", time.value]}

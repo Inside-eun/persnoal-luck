@@ -16,6 +16,7 @@ export const BannerScriptSmall = styled.div`
   text-align: center;
   margin-top: 20px;
   margin-bottom: 50px;
+  font-family: "Pretendard-Light";
 `;
 
 export const DivideLine = styled.div`

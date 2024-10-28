@@ -2,36 +2,26 @@ import React from "react";
 import * as style from "../style/PersonInfo.style";
 import BirthdateSelector from "../Component/BirthdateSelector";
 import TimeTableSelector from "../Component/TimeTableSelector";
-import GenderSelector from "../Component/GenderSelector";
-import CalendarSelector from "../Component/CalenderSelector";
-import { useState, useEffect } from "react";
 import { useRecoilState } from "recoil";
 import userInfo from "../State/UserInfo";
 import { useNavigate } from "react-router-dom";
 
 export const PersonInfo = () => {
-  const [gender, setGender] = useState("female");
-  const [calendarType, setCalendarType] = useState("solarCalendar");
-  const [birthdate, setBirthdate] = useState({
-    year: 0,
-    month: 0,
-    day: 0,
-  });
-  const [timetable, setTimeTable] = useState("자시");
   const [info, setInfo] = useRecoilState(userInfo);
 
   const navigate = useNavigate();
+  const handleSubmit = (event) => {
+    event.preventDefault();
 
-  const userInfoDeliver = () => {
-    setInfo((prev) => ({
-      ...prev,
-      gen: gender,
-      cal: calendarType,
-      year: birthdate.year,
-      month: birthdate.month,
-      day: birthdate.day,
-      time: timetable,
+    const formData = new FormData(event.target);
+    const data = Object.fromEntries(formData.entries());
+
+    console.log("data :", data);
+
+    setInfo(() => ({
+      ...data,
     }));
+
     navigate("/result");
   };
 
@@ -41,37 +31,45 @@ export const PersonInfo = () => {
       <style.ScriptSmall>
         정확한 분석을 위해 실제 생일 정보를 입력해주세요.
       </style.ScriptSmall>
-      <style.SelectZone>
+      <style.SelectZone onSubmit={handleSubmit}>
         <style.OneOption>
           <style.OptionTitle>이름</style.OptionTitle>
-          <style.OptionInput placeholder="이름을 입력해주세요"></style.OptionInput>
+          <style.OptionInput
+            placeholder="이름을 입력해주세요"
+            required
+          ></style.OptionInput>
         </style.OneOption>
         <style.OneOption>
           <style.OptionTitle>성별</style.OptionTitle>
-          <style.OptionCheckBox />
-          여성
-          <style.OptionCheckBox />
-          남성
+          <style.OptionCheckBoxLabel htmlFor="female">
+            <style.OptionCheckBox
+              id="female"
+              type="radio"
+              name="gender"
+              value="female"
+              defaultChecked
+            />
+            여성
+          </style.OptionCheckBoxLabel>
+          <style.OptionCheckBoxLabel htmlFor="male">
+            <style.OptionCheckBox
+              id="male"
+              type="radio"
+              name="gender"
+              value="male"
+            />
+            남성
+          </style.OptionCheckBoxLabel>
         </style.OneOption>
         <style.OneOption>
           <style.OptionTitle>생년월일</style.OptionTitle>
-          <BirthdateSelector
-            calendarType={calendarType}
-            setCalendarType={setCalendarType}
-            birthdate={birthdate}
-            setBirthdate={setBirthdate}
-          />
+          <BirthdateSelector />
         </style.OneOption>
         <style.OneOption>
           <style.OptionTitle>출생시간</style.OptionTitle>
-          <TimeTableSelector
-            timetable={timetable}
-            setTimeTable={setTimeTable}
-          />
+          <TimeTableSelector />
         </style.OneOption>
-        <style.SubmitButton onClick={userInfoDeliver}>
-          입력하기
-        </style.SubmitButton>
+        <style.SubmitButton type="submit">입력하기</style.SubmitButton>
       </style.SelectZone>
     </>
   );
