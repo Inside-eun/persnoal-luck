@@ -36,6 +36,8 @@ export const PersonInfo = () => {
           <style.OptionTitle>이름</style.OptionTitle>
           <style.OptionInput
             placeholder="이름을 입력해주세요"
+            name="name"
+            id="name"
             required
           ></style.OptionInput>
         </style.OneOption>
