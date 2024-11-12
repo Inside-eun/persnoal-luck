@@ -10,11 +10,13 @@ export const InsertInfo = () => {
     <>
       <style.InsertInfoWrap>
         <style.HeaderWrap>
-          <style.LargeTextHeader>아무개 | 여성</style.LargeTextHeader>
+          <style.LargeTextHeader>
+            {info.name} | {info.gender}
+          </style.LargeTextHeader>
           <style.SmallTextHeader>
-            1999년 9월 9일(양력)
+            {info.year}년 {info.month}월 {info.day}일({info.calendar})
             <br />
-            자시 (子時, 자子) 23:30 ~ 01:29
+            {info.time}
           </style.SmallTextHeader>
         </style.HeaderWrap>
       </style.InsertInfoWrap>

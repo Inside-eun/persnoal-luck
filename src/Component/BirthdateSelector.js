@@ -12,9 +12,9 @@ const BirthdateSelector = () => {
           <option value="" disabled selected>
             양/음력
           </option>
-          <option value="solarCalendar">양력</option>
-          <option value="loonarCalendar(normal month)">음력(평달)</option>
-          <option value="loonarCalendar(leap month)">음력(윤달)</option>
+          <option value="양력">양력</option>
+          <option value="음력(평달)">음력(평달)</option>
+          <option value="음력(윤달)">음력(윤달)</option>
         </style.BirthDaySelector>
         <style.BirthDaySelector required id="year" name="year">
           <option value="" disabled selected>

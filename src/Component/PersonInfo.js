@@ -48,7 +48,7 @@ export const PersonInfo = () => {
               id="female"
               type="radio"
               name="gender"
-              value="female"
+              value="여성"
               defaultChecked
             />
             여성
@@ -58,7 +58,7 @@ export const PersonInfo = () => {
               id="male"
               type="radio"
               name="gender"
-              value="male"
+              value="남성"
             />
             남성
           </style.OptionCheckBoxLabel>
