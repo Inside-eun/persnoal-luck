@@ -5,6 +5,7 @@ import userInfo from "../State/UserInfo";
 import userGanji from "../State/UserGanji";
 import moment from "moment";
 import "moment-lunar";
+import GanjiTable from "./GanjiTable";
 
 const GanjiResult = () => {
   const [lunarBirthday, setlunarBirthday] = useState({
@@ -45,12 +46,6 @@ const GanjiResult = () => {
     }
   }, [lunarBirthday]);
 
-  useEffect(() => {
-    if (ganji.year.length && ganji.month.length && ganji.day.length) {
-      GetHoursGanji();
-    }
-  }, [ganji]);
-
   const fetchData = async () => {
     try {
       const url =
@@ -76,11 +71,7 @@ const GanjiResult = () => {
     }
   };
 
-  const GetHoursGanji = () => {
-    console.log("ganji : ", ganji);
-  };
-
-  return <>{ganji ? <div>{JSON.stringify(ganji)}</div> : <p>Loading...</p>}</>;
+  return <>{ganji ? <GanjiTable /> : <p>Loading...</p>}</>;
 };
 
 export default GanjiResult;

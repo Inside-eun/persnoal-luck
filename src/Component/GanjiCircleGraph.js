@@ -3,8 +3,6 @@ import { useRecoilState } from "recoil";
 import userGanji from "../State/UserGanji";
 
 const calculateElementPoints = (sajuObj) => {
-  console.log(sajuObj, "tttt");
-
   const fireSource = ["병", "정", "오", "사"];
   const waterSource = ["임", "계", "해", "자"];
   const earthSource = ["무", "기", "진", "미", "술", "축"];
@@ -37,7 +35,7 @@ const calculateElementPoints = (sajuObj) => {
   return points;
 };
 
-const GanjiGraph = () => {
+const GanjiCircleGraph = () => {
   const [data, setData] = useRecoilState(userGanji);
 
   const result = calculateElementPoints(data);
@@ -53,7 +51,7 @@ const GanjiGraph = () => {
   );
 };
 
-export default GanjiGraph;
+export default GanjiCircleGraph;
 
 //그래프 넣기
 //사주 로직 수정하기
