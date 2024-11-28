@@ -21,7 +21,7 @@ export const BannerScriptSmall = styled.div`
 
 export const DivideLine = styled.div`
   width: 100%;
-  border-bottom: 1px solid gray;
+  border-bottom: 1px solid #e6e6e6;
 `;
 
 export const BannerWrap = styled.div`

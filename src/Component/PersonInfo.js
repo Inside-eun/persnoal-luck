@@ -16,8 +16,6 @@ export const PersonInfo = () => {
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData.entries());
 
-    console.log("data :", data);
-
     setInfo(() => ({
       ...data,
     }));

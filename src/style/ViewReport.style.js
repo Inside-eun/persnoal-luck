@@ -29,3 +29,21 @@ export const SmallTextHeader = styled.div`
   color: #565656;
   line-height: 20px;
 `;
+
+export const DivideLine = styled.div`
+  width: 100%;
+  border-bottom: 1px solid #e6e6e6;
+`;
+
+export const LargeGraphHeader = styled.div`
+  margin-top: 40px;
+  font-size: 24px;
+  text-align: center;
+`;
+
+export const PointScript = styled.div`
+  text-align: center;
+  font-size: 14px;
+  margin-bottom: 40px;
+  line-height: 21px;
+`;
