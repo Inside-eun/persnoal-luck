@@ -6,6 +6,7 @@ import userGanji from "../State/UserGanji";
 import moment from "moment";
 import "moment-lunar";
 import GanjiTable from "./GanjiTable";
+import userDataForShop from "../State/UserDataForShop";
 
 const GanjiResult = () => {
   const [lunarBirthday, setlunarBirthday] = useState({
