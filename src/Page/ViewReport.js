@@ -1,7 +1,8 @@
-import React from "react";
-import GanjiCircleGraph from "../Component/GanjiCircleGraph";
-import GanjiResult from "../Component/GanjiResult";
-import { InsertInfo } from "../Component/InsertInfo";
+import React from 'react';
+import GanjiCircleGraph from '../Component/GanjiCircleGraph';
+import GanjiResult from '../Component/GanjiResult';
+import { InsertInfo } from '../Component/InsertInfo';
+import GoMain from '../Component/GoMain';
 
 export const ViewReport = () => {
   return (
@@ -9,6 +10,7 @@ export const ViewReport = () => {
       <InsertInfo />
       <GanjiResult />
       <GanjiCircleGraph />
+      <GoMain />
     </div>
   );
 };

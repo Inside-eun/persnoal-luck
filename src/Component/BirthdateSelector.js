@@ -1,5 +1,5 @@
-import React from "react";
-import * as style from "../style/PersonInfo.style";
+import React from 'react';
+import * as style from '../style/PersonInfo.style';
 
 const BirthdateSelector = () => {
   const currentYear = new Date().getFullYear();
@@ -7,7 +7,7 @@ const BirthdateSelector = () => {
 
   return (
     <style.BirthDayWrap>
-      <style.BirthDayOneWrap>
+      <style.BirthDayOneWrap style={{ marginBottom: '7px' }}>
         <style.BirthDaySelector required id="calendar" name="calendar">
           <option value="" disabled selected>
             양/음력
@@ -27,7 +27,6 @@ const BirthdateSelector = () => {
           ))}
         </style.BirthDaySelector>
       </style.BirthDayOneWrap>
-
       <style.BirthDayOneWrap>
         <style.BirthDaySelector required id="month" name="month">
           <option value="" disabled selected>

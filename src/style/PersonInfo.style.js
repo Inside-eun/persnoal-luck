@@ -1,14 +1,15 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const ScriptLarge = styled.div`
   font-size: 24px;
   margin-top: 50px;
   text-align: center;
+  margin-bottom: 10px;
 `;
 export const ScriptSmall = styled.div`
   text-align: center;
   font-size: 12px;
-  font-family: "Pretendard-Light";
+  font-family: 'Pretendard-Light';
 `;
 
 export const SelectZone = styled.form`
@@ -17,20 +18,19 @@ export const SelectZone = styled.form`
   justify-content: center;
   align-items: center;
   padding: 0 20px;
-  margin-top: 20px;
+  margin-top: 25px;
 `;
 
 export const OneOption = styled.div`
   display: flex;
-  flex-direction: row;
   width: 100%;
   height: fit-content;
-  margin-bottom: 5px;
+  margin-bottom: 20px; /* 간격 추가 */
 `;
 
 export const OptionTitle = styled.div`
   font-size: 14px;
-  margin-right: 12px;
+  margin-bottom: 8px; /* 제목과 입력칸 사이 간격 추가 */
 `;
 
 export const OptionInput = styled.input`
@@ -38,36 +38,39 @@ export const OptionInput = styled.input`
   height: 32px;
   border: 1px solid #bababa;
   border-radius: 4px;
-  font-family: "Pretendard-Light";
+  font-family: 'Pretendard-Light';
   font-size: 14px;
+  margin-left: auto;
 `;
 
 export const OptionCheckBoxLabel = styled.label`
-  font-family: "Pretendard-Light";
+  font-family: 'Pretendard-Light';
   font-size: 14px;
   cursor: pointer;
 `;
 
-export const OptionCheckBox = styled.input.attrs({ type: "radio" })``;
+export const OptionCheckBox = styled.input.attrs({ type: 'radio' })``;
 
 export const BirthDaySelector = styled.select`
   width: 125px;
   height: 32px;
   border: 1px solid #bababa;
   border-radius: 4px;
-  font-family: "Pretendard-Light";
+  font-family: 'Pretendard-Light';
   font-size: 14px;
 `;
 
 export const BirthTimeSelector = styled(BirthDaySelector)`
-  width: 100%;
-  font-family: "Pretendard-Light";
+  width: 260px;
+  margin-left: auto;
+  font-family: 'Pretendard-Light';
   font-size: 14px;
 `;
 
 export const BirthDayWrap = styled.div`
-  width: 100%;
+  width: 260px;
   display: flex;
+  margin-left: auto;
   flex-direction: column;
 `;
 
@@ -87,6 +90,6 @@ export const SubmitButton = styled.button`
   color: #ffffff;
   text-align: center;
   margin-bottom: 40px;
-  font-family: "Pretendard-Medium";
+  font-family: 'Pretendard-Medium';
   cursor: pointer;
 `;
